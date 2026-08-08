@@ -366,8 +366,14 @@ footer{background:var(--black);border-top:1px solid var(--bd);padding:36px 48px;
   filter:grayscale(.55) contrast(1.06) brightness(.92);transition:filter .8s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)}
 .hd-media:hover img{filter:grayscale(.2) contrast(1.06);transform:scale(1.03)}
 @media(min-width:1081px){
-  .hd-media{width:min(34vw,400px);height:250px;margin-left:auto;margin-right:28px;align-self:flex-start}
-  .sec-hd-row.has-media .sec-hd-left{flex:1 1 480px;max-width:600px}
+  .sec-hd-row.has-media{align-items:stretch}
+  .hd-media{width:min(46vw,600px);height:auto;min-height:300px;margin-left:auto;margin-right:26px}
+  .sec-hd-row.has-media .sec-hd-left{flex:0 1 560px;max-width:560px}
+  .sec-hd-row.has-media .sec-toggle{align-self:flex-start}
+}
+@media(min-width:1081px) and (max-width:1300px){
+  .hd-media{width:min(40vw,470px);min-height:270px}
+  .sec-hd-row.has-media .sec-hd-left{flex:0 1 480px;max-width:480px}
 }
 @media(max-width:1080px){
   .sec-hd-row.has-media .sec-hd-left{flex:1 1 auto;max-width:calc(100% - 58px)}
@@ -466,6 +472,11 @@ section.sl .opp-label,section.sl2 .opp-label,section.sw .opp-label{border-bottom
   .sec-toggle,.ph-arr{display:none!important}
 }
 </style>
+<link rel="icon" href="https://www.ghostnoteagency.com/wp-content/uploads/2025/05/GN-White-350x350.png" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.ghostnoteagency.com/wp-content/uploads/2025/05/GN-White-350x350.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.ghostnoteagency.com/wp-content/uploads/2025/05/GN-White-350x350.png">
+<meta name="theme-color" content="#090909">
+<meta name="msapplication-TileColor" content="#090909">
 </head>
 <body>
 

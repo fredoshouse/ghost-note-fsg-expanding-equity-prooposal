@@ -75,6 +75,18 @@ All hot-linked with `onerror` fallbacks that remove the container, so a blocked
 hot-link degrades cleanly rather than leaving a dead frame. To self-host, save the
 files here and switch to relative paths.
 
+## Favicon
+
+Uses the Ghost Note site icon straight off ghostnoteagency.com
+(`2025/05/GN-White-350x350.png`), plus `apple-touch-icon` and a `#090909`
+theme-color so the mobile browser chrome and any home-screen save match the deck.
+
+**Check this on the live deploy.** That asset is the *white* GN mark. If it was
+exported on a transparent background it will be close to invisible on a light
+browser tab. If that's what you see, drop a 512x512 PNG of the white mark on
+`#090909` into this folder as `favicon.png` and point the three `<link>` tags at
+`/favicon.png` instead.
+
 ## Motion
 
 The page was reading as a wall of text, so there's a light reveal system:
