@@ -45,7 +45,7 @@ outline until she opens what she wants.
 Phase totals only. No per-component dollar figures.
 
 - Phase 01 Campaign Design — $65,000 – $85,000
-- Phase 02 Implementation & Management — $30,000 – $50,000
+- Phase 02 Lifecycle, CRM Architecture & Deployment — $30,000 – $50,000
 - Scope B, both phases — $95,000 – $135,000
 - Sustained partnership — $8,000 – $12,000 / month
 
@@ -59,16 +59,50 @@ headline range and the note beneath it.
 
 ## Images
 
-Four external assets, all hot-linked, all with `onerror` fallbacks that remove
-their container so a blocked hot-link degrades cleanly rather than leaving a dead
-frame.
+No standalone image sections. Photography is layered into section headers via
+`.hd-media`, which sits in the blank space to the right of the headline on
+desktop (≥1081px) and stacks full-width beneath the intro copy on mobile. Because
+it lives in the header rather than the collapsible body, it's visible while
+scrolling without expanding anything.
 
 - Hero background — `expandingequity.com/.../expanding-equity.jpg`
-- Band 1 and Risk section background — `wkkf.org/.../signature-efforts-expanding-equity.jpg`
-- Band 2 — `expandingequity.com/.../Potential-4th-image-EE-1500x843.jpg`
+- The Opportunity header — `wkkf.org/.../signature-efforts-expanding-equity.jpg`
+- Risk section background — same WKKF image, scrimmed
+- Scope & Phases header — `expandingequity.com/.../Potential-4th-image-EE-1500x843.jpg`
 - Team headshots — `ghostnoteagency.com` uploads
 
-To self-host, save the files here and switch to relative paths.
+All hot-linked with `onerror` fallbacks that remove the container, so a blocked
+hot-link degrades cleanly rather than leaving a dead frame. To self-host, save the
+files here and switch to relative paths.
+
+## Motion
+
+The page was reading as a wall of text, so there's a light reveal system:
+
+- `.rv` / `.rv.in` — scroll-triggered fade-up on headlines, media, tension blocks,
+  pillars, opp rows, team cards, gantt rows, option cards, and table rows, with a
+  70ms stagger between siblings
+- Hero content animates up on unlock; the hero image settles from a 1.07 scale
+- Gantt bars and budget bars wipe in from the left when their row reveals
+- Cards lift on hover, the section toggle rotates 90°
+- `__rvRescan()` fires when a section expands so newly revealed content animates
+  rather than appearing pre-shown
+- Everything is disabled under `prefers-reduced-motion`
+
+## Mobile
+
+Audited at 360, 390, 430, and 768px. Zero horizontal overflow, no console errors,
+no tap target under 36px at any width.
+
+- The 3,300-dot member field drops to 3px dots below 640px, taking it from ~780px
+  tall to ~330px so it reads as one striking block rather than a scroll marathon
+- The gantt and the team card rows scroll horizontally, so both carry an animated
+  "swipe" hint — without it there was no affordance telling anyone to try
+- Section expand buttons invert to a solid fill and grow to 40px
+- The pricing switch grows to 66×38, the menu button to 40px min-height, the modal
+  close to 44×44, and nav links get 11px of vertical padding
+- Layered section images stack full-width beneath the intro copy with the expand
+  button pinned top-right
 
 ## Hero buttons
 
@@ -88,6 +122,16 @@ Sarah Duarte (Strategy Director), Amiri Rose (Creative Direction).
 
 The Lifecycle & CRM Architect is deliberately an open seat — its bio explains why
 rather than using a placeholder name.
+
+Headshots are pulled from ghostnoteagency.com/about. Amiri Rose isn't on the team
+page yet, so his uses the supplied benmoon portrait.
+
+Avatars render as an `<img>` layered over the initials rather than a CSS
+background. If a URL 404s the image removes itself and the initials show through,
+so a bad link can never produce a blank coloured circle. That was the earlier bug:
+Aminata's URL was the 800x800 variant, which the site doesn't serve, and Adam had
+no photo at all — both produced empty dots because `font-size:0` was hiding the
+initials underneath.
 
 ## Two fixes applied to the template
 
